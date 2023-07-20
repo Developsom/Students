@@ -13,6 +13,9 @@ public class Student {
     @GeneratedValue
     Long id;
 
+    String fullName;
+
+    int phoneNumber;
 
 
 
