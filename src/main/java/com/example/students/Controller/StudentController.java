@@ -6,6 +6,9 @@ import com.example.students.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
+
+import java.net.URI;
 
 @RestController
 @RequestMapping("students") //This is the endpoint
@@ -20,8 +23,13 @@ public class StudentController {
     }
 
     @PostMapping
-    public ResponseEntity<Student> createStudent(RequestBody Student stud) {
-        repos.save(stud);
+    public ResponseEntity<Student> createStudent(RequestBody Student t){
+        repos.save(t);
+
+        URI uri = URI.create(ServletUriComponentsBuilder
+                .fromCurrentRequest().path(("/" + s.getId()).toUriString());
+
+        return ResponseEntity.created(uri).body(s);
     }
 
 }
