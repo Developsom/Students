@@ -24,5 +24,14 @@ public class StudentController {
 
 
 
+    @PostMapping
+    public ResponseEntity<Student> createStudent(@RequestBody Student student){
+        repos.save(student);
+
+        URI uri = URI.create(ServletUriComponentsBuilder
+                .fromCurrentRequest().path("/" + student.getId()).toUriString());
+
+        return ResponseEntity.created(uri).body(student);
+    }
 
 }
