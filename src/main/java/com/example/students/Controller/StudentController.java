@@ -22,14 +22,7 @@ public class StudentController {
         return ResponseEntity.ok(repos.findAll());
     }
 
-    @PostMapping
-    public ResponseEntity<Student> createStudent(RequestBody Student t){
-        repos.save(t);
 
-        URI uri = URI.create(ServletUriComponentsBuilder
-                .fromCurrentRequest().path(("/" + s.getId()).toUriString());
 
-        return ResponseEntity.created(uri).body(s);
-    }
 
 }
