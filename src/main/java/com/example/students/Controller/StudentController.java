@@ -1,7 +1,7 @@
 package com.example.students.Controller;
 
 
-import com.example.students.Entity.Student;
+import com.example.students.Model.Student;
 import com.example.students.Repository.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
